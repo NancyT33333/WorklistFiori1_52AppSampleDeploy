@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="FCOM_COSTCENTER_SRV" xml:lang="ru" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="F4_CostCenterGroup" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Khinr"/></Key><Property Name="Khinr" Type="Edm.String" Nullable="false" MaxLength="12" sap:text="Settext" sap:unicode="false" sap:label="Раздел иерархии"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Settext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Описание" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="F4_Language" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Spras"/></Key><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Sptxt" sap:unicode="false" sap:label="Язык"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Sptxt" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="F4_ProfitCenter" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Prctr"/><PropertyRef Name="Kokrs"/><PropertyRef Name="Datab"/></Key><Property Name="Prctr" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Mctxt" sap:unicode="false"
+					sap:label="Место возникновения прибыли" sap:creatable="false" sap:updatable="false"/><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="КЕ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mctxt" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Язык" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Verapc" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Ответственное лицо"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Khinr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Область" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Datab" Type="Edm.DateTime" Nullable="false" Precision="7" sap:display-format="Date" sap:unicode="false"
+					sap:label="Действительно с" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Segment" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Сегмент" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_CostCenter" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kostl"/><PropertyRef Name="Kokrs"/><PropertyRef Name="Datbi"/></Key><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Mctxt" sap:unicode="false"
+					sap:label="Место возникновения затрат" sap:creatable="false" sap:updatable="false"/><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="КЕ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Балансовая единица"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Kosar" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Вид МВЗ" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Verak" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Ответственное лицо"
+					sap:creatable="false" sap:updatable="false"/><Property Name="VerakUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Ответственный пользователь"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mctxt" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Краткий текст" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Язык" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datab" Type="Edm.DateTime" Nullable="false" Precision="7" sap:display-format="Date" sap:unicode="false"
+					sap:label="Действительно с" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datbi" Type="Edm.DateTime" Nullable="false" Precision="7" sap:display-format="Date" sap:unicode="false"
+					sap:label="Действительно по" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CostCenter" sap:content-version="1">
+				<Key><PropertyRef Name="Kokrs"/><PropertyRef Name="Kostl"/><PropertyRef Name="Datbi"/></Key><Property Name="BUKRS_TEXT" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Название фирмы"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:aggregation-role="dimension"
+					sap:filter-restriction="multi-value" sap:unicode="false" sap:label="Контроллинговая единица" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:value-list="standard"/><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="МВЗ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Datbi" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Действ. по" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Datab" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Действ. с" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Название" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Описание" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Objnr" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="Номер объекта" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Ersda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Дата создания" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Usnam" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Создал" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="БЕ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Gsber" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Бизнес-сфера" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Abtei" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Отдел" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Kosar" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Вид МВЗ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Verak" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Ответственное лицо" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="VerakUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Ответств. польз." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Валюта" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard" sap:semantics="currency-code"/><Property Name="Khinr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Раздел иерархии"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Prctr" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:filter-restriction="multi-value"
+					sap:unicode="false" sap:label="МВП" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Logsystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="ЛогичСист" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FuncArea" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="ФункцСфера" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Завод" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Spras2" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Язык" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bkzkp" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Фактические первичные затраты"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bkzks" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Фактические вторичные затраты"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bkzer" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Фактическая выручка"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bkzob" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="АктуализцОблиго"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pkzkp" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Первичные затраты/план"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pkzks" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Плановые вторичные затраты"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Pkzer" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Плановая выручка"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mgefl" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="ВедениеКолич" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kvewe" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Использование" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kappl" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Приложение" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kalsm" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="СхемаКальк" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Koszschl" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Код надбавки"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CpiTempl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Схема/НеЗависОтРабот"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="CpdTempl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="СхемаЗависОтРабт"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="SciTempl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="СхмПерерсч/НЗвсОтРбт"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="ScdTempl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="СхмПерерсч/ЗвсОтРбт"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Страна" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Anred" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Обращение" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Имя 2" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Name3" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Имя 3" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Name4" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Имя 4" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Ort01" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Город" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Ort02" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Район" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Stras" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Улица" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Pfach" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="П/ящик" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Pstlz" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Почтовый индекс"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Pstl2" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Почтовый индекс п/я"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Regio" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Регион" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Txjcd" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="КодМестаНалог" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Язык" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:value-list="standard"/><Property Name="Telbx" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Телебокс" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Telf1" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Телефон 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Telf2" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Телефон-2" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Telfx" Type="Edm.String" Nullable="false" MaxLength="31" sap:unicode="false" sap:label="Телефакс" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Teltx" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Телетекс" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Telx1" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Телекс" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Datlt" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Канал связи" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Drnam" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Имя принтера" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Vname" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Совместное предприятие"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Recid" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Тип затрат" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Etype" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Вид участия" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JvOtype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Тип объектов СП"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JvJibcl" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="JIB/JIBE Класс"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="JvJibsa" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="JIB/JIBE ПодклА"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Kompl" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Полнота" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UsnamText" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Созданное имя пользователя"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="VerakUserText" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Полное имя пользователя"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Mctxt" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Краткий текст" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="F4_Country" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Land1"/></Key><Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Landx" sap:unicode="false" sap:label="Страна"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Landx" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Natio" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Гражданство" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="F4_CostingSheet" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kalsm"/></Key><Property Name="Kalsm" Type="Edm.String" Nullable="false" MaxLength="6" sap:text="Vtext" sap:unicode="false" sap:label="Процедура"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Vtext" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Описание" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_Currency" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Waers"/></Key><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="Ltext" sap:unicode="false" sap:label="Валюта"
+					sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Подробный текст"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_UserResp" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Bname"/></Key><Property Name="Bname" Type="Edm.String" Nullable="false" MaxLength="12" sap:text="NameTextc" sap:unicode="false" sap:label="Пользователь"
+					sap:creatable="false" sap:updatable="false"/><Property Name="McNamelas" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Фамилия" sap:creatable="false"
+					sap:updatable="false"/><Property Name="McNamefir" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false"/><Property Name="NameTextc" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Полное имя"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_CompanyCode" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:text="Butxt" sap:unicode="false" sap:label="БЕ"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Название фирмы"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Ort01" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Город" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Валюта" sap:creatable="false"
+					sap:updatable="false" sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="F4_BusinessArea" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Gsber"/></Key><Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" sap:text="Gtext" sap:unicode="false" sap:label="Бизнес-сфера"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Gtext" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Бизнес-сфера" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_CostCenterCategory" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kosar"/></Key><Property Name="Kosar" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="Ktext" sap:unicode="false" sap:label="Вид МВЗ"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_ControllingArea" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kokrs"/></Key><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:text="Bezei" sap:unicode="false" sap:label="КЕ"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Bezei" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Валюта" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/><Property Name="Ktopl" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="План счетов" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lmona" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Вариант ФГ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Khinr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Стандартная иерархия"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Logsystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Логическая система"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="F4_FunctionalArea" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Fkber"/></Key><Property Name="Fkber" Type="Edm.String" Nullable="false" MaxLength="16" sap:text="Fkbtx" sap:unicode="false"
+					sap:label="Функциональная сфера" sap:creatable="false" sap:updatable="false"/><Property Name="Fkbtx" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Текст функциональной сферы"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_TemplateSCD" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kokrs"/><PropertyRef Name="Class"/><PropertyRef Name="Template"/></Key><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="КЕ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Class" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Среда" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Template" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Text" sap:unicode="false" sap:label="Шаблон"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_TemplateCPD" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kokrs"/><PropertyRef Name="Class"/><PropertyRef Name="Template"/></Key><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="КЕ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Class" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Среда" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Template" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Text" sap:unicode="false" sap:label="Шаблон"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_TemplateSCI" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kokrs"/><PropertyRef Name="Class"/><PropertyRef Name="Template"/></Key><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="КЕ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Class" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Среда" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Template" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Text" sap:unicode="false" sap:label="Шаблон"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_TemplateCPI" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Kokrs"/><PropertyRef Name="Class"/><PropertyRef Name="Template"/></Key><Property Name="Kokrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="КЕ" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Class" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Среда" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Template" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="Text" sap:unicode="false" sap:label="Шаблон"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Имя" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="F4_Region" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Bland"/><PropertyRef Name="Land1"/></Key><Property Name="Bland" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Bezei" sap:unicode="false" sap:label="Регион"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Страна" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Bezei" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Описание" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="ControllingAreaList" sap:content-version="1">
+				<Key><PropertyRef Name="ControllingArea"/></Key><Property Name="ControllingArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="КонтроллингЕд"/><Property Name="ControllingAreaName" Type="Edm.String" MaxLength="25" sap:label="Название"/><Property Name="IS_ERROR" Type="Edm.String" MaxLength="1" sap:label="Знак 1"/><Property Name="MESSAGETYPE" Type="Edm.String" MaxLength="1" sap:label="Тип сообщения"/><Property Name="MESSAGE" Type="Edm.String" MaxLength="220" sap:label="Текст сообщения"/><Property Name="TYPE" Type="Edm.String" MaxLength="4" sap:label="Более точно не опр. область, возм. исп. для уровня &quot;заплат&quot;"/><Property Name="IDANDNAME" Type="Edm.String" MaxLength="30" sap:label="30 знаков"/></EntityType>
+			<EntityType Name="Contacts" sap:content-version="1">
+				<Key><PropertyRef Name="FULL_NAME"/></Key><Property Name="USERNAME" Type="Edm.String" MaxLength="12" sap:label="ИмяПользователя"/><Property Name="USER_ID" Type="Edm.String" MaxLength="12" sap:label="Имя пользователя"/><Property Name="FIRST_NAME" Type="Edm.String" MaxLength="40" sap:label="Имя"/><Property Name="LAST_NAME" Type="Edm.String" MaxLength="40" sap:label="Фамилия"/><Property Name="FULL_NAME" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Полное имя"/><Property Name="E_MAIL" Type="Edm.String" MaxLength="241" sap:label="Адрес эл. почты"/><Property Name="COMPANYNAME" Type="Edm.String" MaxLength="40" sap:label="Имя"/><Property Name="COMPANYNAME2" Type="Edm.String" MaxLength="40" sap:label="Имя 2"/><Property Name="DEPARTMENT" Type="Edm.String" MaxLength="40" sap:label="Отдел"/><Property Name="STREET" Type="Edm.String" MaxLength="60" sap:label="Улица"/><Property Name="MOBILE" Type="Edm.String" MaxLength="30" sap:label="Номер телефона"/><Property Name="TELEPHONE" Type="Edm.String" MaxLength="30" sap:label="Номер телефона"/><Property Name="FUNCTION" Type="Edm.String" MaxLength="40" sap:label="Функция"/></EntityType>
+			<EntityContainer Name="FCOM_COSTCENTER_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="F4_CostCenterGroupSet" EntityType="FCOM_COSTCENTER_SRV.F4_CostCenterGroup" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_LanguageSet" EntityType="FCOM_COSTCENTER_SRV.F4_Language" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_ProfitCenterSet" EntityType="FCOM_COSTCENTER_SRV.F4_ProfitCenter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_CostCenterSet" EntityType="FCOM_COSTCENTER_SRV.F4_CostCenter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="CostCenterSet" EntityType="FCOM_COSTCENTER_SRV.CostCenter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/><EntitySet Name="F4_CountrySet" EntityType="FCOM_COSTCENTER_SRV.F4_Country" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_CostingSheetSet" EntityType="FCOM_COSTCENTER_SRV.F4_CostingSheet" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_CurrencySet" EntityType="FCOM_COSTCENTER_SRV.F4_Currency" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_UserRespSet" EntityType="FCOM_COSTCENTER_SRV.F4_UserResp" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_CompanyCodeSet" EntityType="FCOM_COSTCENTER_SRV.F4_CompanyCode" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_BusinessAreaSet" EntityType="FCOM_COSTCENTER_SRV.F4_BusinessArea" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_CostCenterCategorySet" EntityType="FCOM_COSTCENTER_SRV.F4_CostCenterCategory" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_ControllingAreaSet" EntityType="FCOM_COSTCENTER_SRV.F4_ControllingArea" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_FunctionalAreaSet" EntityType="FCOM_COSTCENTER_SRV.F4_FunctionalArea" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_TemplateSCDSet" EntityType="FCOM_COSTCENTER_SRV.F4_TemplateSCD" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_TemplateCPDSet" EntityType="FCOM_COSTCENTER_SRV.F4_TemplateCPD" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_TemplateSCISet" EntityType="FCOM_COSTCENTER_SRV.F4_TemplateSCI" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_TemplateCPISet" EntityType="FCOM_COSTCENTER_SRV.F4_TemplateCPI" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="F4_RegionSet" EntityType="FCOM_COSTCENTER_SRV.F4_Region" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ControllingAreaListCollection" EntityType="FCOM_COSTCENTER_SRV.ControllingAreaList" sap:content-version="1"/><EntitySet Name="ContactsCollection" EntityType="FCOM_COSTCENTER_SRV.Contacts" sap:content-version="1"/>
+				<FunctionImport Name="EditCostCenterCheck" ReturnType="FCOM_COSTCENTER_SRV.CostCenter" EntitySet="CostCenterSet" m:HttpMethod="GET"><Parameter Name="Kostl" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="Kokrs" Type="Edm.String" Mode="In" MaxLength="4"/></FunctionImport>
+				<FunctionImport Name="CreateCostCenterCheck" ReturnType="FCOM_COSTCENTER_SRV.CostCenter" EntitySet="CostCenterSet" m:HttpMethod="GET"><Parameter Name="Kostl" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="Kokrs" Type="Edm.String" Mode="In" MaxLength="4"/></FunctionImport><FunctionImport Name="ControllingAreaList" ReturnType="Collection(FCOM_COSTCENTER_SRV.ControllingAreaList)"
+					EntitySet="ControllingAreaListCollection" m:HttpMethod="GET"/>
+				<FunctionImport Name="GetSetControllingArea" ReturnType="Collection(FCOM_COSTCENTER_SRV.ControllingAreaList)"
+					EntitySet="ControllingAreaListCollection" m:HttpMethod="GET"><Parameter Name="ControllingArea" Type="Edm.String" Mode="In" MaxLength="4"/><Parameter Name="Type" Type="Edm.String" Mode="In" MaxLength="4"/></FunctionImport>
+				<FunctionImport Name="GetNameCardProfile" ReturnType="Collection(FCOM_COSTCENTER_SRV.Contacts)" EntitySet="ContactsCollection"
+					m:HttpMethod="GET"><Parameter Name="USERNAME" Type="Edm.String" Mode="In" MaxLength="12"/></FunctionImport>
+			</EntityContainer>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Kostl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Средство поиска МВЗ"/><PropertyValue Property="CollectionPath" String="F4_CostCenterSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Kostl"/><PropertyValue Property="ValueListProperty" String="Kostl"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Mctxt"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Bukrs"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Kosar"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Verak"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Datab"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/VerakUser" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Пользователи по адресным данным"/><PropertyValue Property="CollectionPath" String="F4_UserRespSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="VerakUser"/><PropertyValue Property="ValueListProperty" String="Bname"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="McNamelas"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="McNamefir"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="NameTextc"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Khinr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Средство поиска групп МВЗ"/><PropertyValue Property="CollectionPath" String="F4_CostCenterGroupSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Khinr"/><PropertyValue Property="ValueListProperty" String="Khinr"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Settext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Usnam" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Пользователи по адресным данным"/><PropertyValue Property="CollectionPath" String="F4_UserRespSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Usnam"/><PropertyValue Property="ValueListProperty" String="Bname"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="McNamelas"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="McNamefir"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="NameTextc"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Prctr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Средство поиска МВП"/><PropertyValue Property="CollectionPath" String="F4_ProfitCenterSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Prctr"/><PropertyValue Property="ValueListProperty" String="Prctr"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Mctxt"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Datab"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Khinr"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Segment"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Verapc"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Gsber" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Средство поиска бизнес-сферы"/><PropertyValue Property="CollectionPath" String="F4_BusinessAreaSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Gsber"/><PropertyValue Property="ValueListProperty" String="Gsber"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Gtext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Bukrs" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Балансовая единица"/><PropertyValue Property="CollectionPath" String="F4_CompanyCodeSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Bukrs"/><PropertyValue Property="ValueListProperty" String="Bukrs"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Butxt"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ort01"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Waers"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Kokrs" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Контроллинговая единица"/><PropertyValue Property="CollectionPath" String="F4_ControllingAreaSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Kokrs"/><PropertyValue Property="ValueListProperty" String="Kokrs"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Bezei"/><PropertyValue Property="ValueListProperty" String="Bezei"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ktopl"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Lmona"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Khinr"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Logsystem"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Kosar" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Вид МВЗ"/><PropertyValue Property="CollectionPath" String="F4_CostCenterCategorySet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Kosar"/><PropertyValue Property="ValueListProperty" String="Kosar"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ktext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/FuncArea" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Функциональные сферы"/><PropertyValue Property="CollectionPath" String="F4_FunctionalAreaSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="FuncArea"/><PropertyValue Property="ValueListProperty" String="Fkber"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Fkbtx"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/CpiTempl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Шаблон CPI"/><PropertyValue Property="CollectionPath" String="F4_TemplateCPISet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CpiTempl"/><PropertyValue Property="ValueListProperty" String="Template"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/CpdTempl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Шаблон CPD"/><PropertyValue Property="CollectionPath" String="F4_TemplateCPDSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CpdTempl"/><PropertyValue Property="ValueListProperty" String="Template"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/ScdTempl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Шаблон SCD"/><PropertyValue Property="CollectionPath" String="F4_TemplateSCDSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ScdTempl"/><PropertyValue Property="ValueListProperty" String="Template"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/SciTempl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Шаблон SCI"/><PropertyValue Property="CollectionPath" String="F4_TemplateSCISet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="SciTempl"/><PropertyValue Property="ValueListProperty" String="Template"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Land1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Ракурс справки для стран"/><PropertyValue Property="CollectionPath" String="F4_CountrySet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Land1"/><PropertyValue Property="ValueListProperty" String="Land1"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Landx"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Regio" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Сгенерированный ракурс справки для проверочной таблицы T005S"/><PropertyValue Property="CollectionPath" String="F4_RegionSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Regio"/><PropertyValue Property="ValueListProperty" String="Bland"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Land1"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Bezei"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Kalsm" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Средство поиска схемы калькуляции"/><PropertyValue Property="CollectionPath" String="F4_CostingSheetSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Kalsm"/><PropertyValue Property="ValueListProperty" String="Kalsm"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Vtext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Spras" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Индикатор языка"/><PropertyValue Property="CollectionPath" String="F4_LanguageSet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Spras"/><PropertyValue Property="ValueListProperty" String="Spras"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Sptxt"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="FCOM_COSTCENTER_SRV.CostCenter/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="Label" String="Ракурс справки для валюты"/><PropertyValue Property="CollectionPath" String="F4_CurrencySet"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/><PropertyValue Property="ValueListProperty" String="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link rel="self" href="http://sap-s4h.teamidea.ru:44300/sap/opu/odata/sap/FCOM_COSTCENTER_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="http://sap-s4h.teamidea.ru:44300/sap/opu/odata/sap/FCOM_COSTCENTER_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

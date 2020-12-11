@@ -1,0 +1,16 @@
+{
+  "@sapui5/generator-sapui5-templates": {
+    "promptValues": {
+      "ApplicationTitle": "VSCodeDeplTest",
+      "ApplicationDescription": "-",
+      "FLP": true,
+      "ServiceBaseUri": "https://sap-s4h.teamidea.ru:44300/sap/opu/odata/sap/FCOM_COSTCENTER_SRV/",
+      "DatasourceUrl": "/sap/opu/odata/sap/FCOM_COSTCENTER_SRV/",
+      "ObjectCollection": "CostCenterSet",
+      "ObjectCollection_Key": "Kokrs",
+      "Object_Identifier": "Ktext",
+      "Object_Number": "",
+      "Object_UnitOfMeasure": "Waers"
+    }
+  }
+}
